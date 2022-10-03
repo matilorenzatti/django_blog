@@ -1,0 +1,26 @@
+{% extends "app_blog/base.html" %}
+
+{% block contenido_base %}
+
+<h1 style="border-bottom: 2px solid rgba(0, 0, 0, 0.445);">Nuestros blogs:</h1>
+
+{% if object_list|length == 0 %}
+<br>
+<br>
+<p>No hay entradas aun. <p>
+
+{% else %}
+<br>
+<br>
+{% for post in object_list %}
+<article style="border-bottom: 1px solid rgba(0, 0, 0, 0.438);">
+    <a href="{% url 'detail_post' post.id %}"><h3>{{post.titulo}}</h3></a>
+    <h5>{{post.subtitulo}}</h5>
+    <h6>Post creado por: {{post.usuario}} el {{post.fecha_post}}</h6>
+</article>
+<br>
+<br>
+{% endfor %}
+
+{% endif %}
+{% endblock contenido_base %}

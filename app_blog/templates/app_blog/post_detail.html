@@ -1,0 +1,13 @@
+{% extends "app_blog/base.html" %}
+
+{% block contenido_base %}
+
+<h1 style="text-align:center;">{{object.titulo}}</h1>
+<h3 style="margin-top:25px;">{{object.subtitulo}}</h3>
+Post creado por {{object.usuario}} el {{object.fecha_post}}.
+<div style="text-align:center; margin: 25px;"><img style="text-align:center ;" width="50%" src="{{post.imagen.url}}"></div>
+<p style="text-align:justify ;">{{object.cuerpo}}</p>
+<h6>¡Gracias por leer este post!</h6>
+<div style="text-align: center;margin: 45px;"><a style="text-align: center ;" href="{% url 'list_posts' %}"><b style="color:rgb(134, 80, 204) ;border: 1px solid black;padding: 5px;margin: 25px;">Volver al inicio</b></a></div>
+
+{% endblock contenido_base %}

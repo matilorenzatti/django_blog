@@ -1,0 +1,35 @@
+{% extends "app_blog/base.html" %}
+{% load static %}
+{% block contenido_base %}
+
+<h1 style="margin: 45px;">Nuestros blogs:</h1>
+<a href="{% url 'create_post' %}" style="border: 1px solid black;padding: 16px;margin: 15px;border-radius: 10px;background-color: bisque;"><b>Crear nuevo post</b></a>
+<br>
+<br>
+
+<table style="border: 2px solid black; width: 1200px;">
+<thead style="border-bottom: 1px solid black;">
+    <tr>
+        <th style="padding: 16px;border: 1px solid black;text-align: center;">Titulo</th>
+        <th style="padding: 16px;border: 1px solid black;text-align: center;">Usuario</th>
+        <th style="padding: 16px;border: 1px solid black;text-align: center;">Ver</th>
+        <th style="padding: 16px;border: 1px solid black;text-align: center;">Editar</th>
+        <th style="padding: 16px;border: 1px solid black;text-align: center;">Eliminar</th>
+    </tr>
+</thead>
+
+<tbody>
+{% for post in object_list %}
+<tr>
+    <td style="padding: 16px;">{{post.titulo}}     </td>
+    <td style="padding: 16px;">     {{post.usuario}}     </td>
+    <td style="padding: 16px;"><a style="color:black;" href="{% url 'detail_post' post.id %}"><b>Ver post</b></a></td>
+    <td style="padding: 16px;"><a style="color: blue;" href="{% url 'update_post' post.id %}">Editar post</a></td>
+    <td style="padding: 16px;"><a style="color: red;" href="{% url 'delete_post' post.id %}">Eliminar post</a></td>
+</tr>
+{% endfor %}
+
+</tbody>
+</table>
+
+{% endblock contenido_base %}

@@ -1,0 +1,12 @@
+{% extends "app_blog/base.html" %}
+
+{% block contenido_base %}
+<form method="post">
+    {% csrf_token %}
+    ¿Estas seguro que deseas eliminar el siguiente post: "{{object}}" ?
+    <br>
+    <br>
+    <button style="margin:15px 0;" type="submit" class="btn btn-warning">Eliminar</button>
+</form>
+
+{% endblock contenido_base %}
