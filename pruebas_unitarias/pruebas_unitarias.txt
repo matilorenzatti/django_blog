@@ -1,0 +1,50 @@
+PRUEBAS UNITARIAS:
+
+Se realizaron 2 pruebas unitarias, por el hecho de que como vimos en clases, NO son las unicas pruebas existentes, y muchas del resto de las pruebas se realizaron a medida que el proyecto se fue desarrollando, testeando de forma manual cada una de las nuevas funcionalidades desarrolladas, y comprobando por medio del funcionamiento de la app, como asi tambien por los mensajes y advertencias que nos arroja en la temminal Python y Django.
+
+Asi mismo, se opto por desarrollar dos pruebas unitarias que son las siguientes:
+
+- test_creacion_usuarios:
+En dicha prueba unitaria, se busca crear 1000 registros/usuarios nuevos, verificando que no haya problema al mezclar una serie de caracteres alfanumericos. Efectivamente, luego de ejecutar el test, pudiemos comprobar que los usuarios fueron creados con exito, sin arrojar error alguno. Esto nos da seguridad de que cualquier usuario, utilice la combinacion de caracteres que utilice, va a poder registrarse en nuestra app.
+
+- test_creacion_post:
+En dicha prueba unitaria, se busca crear 1000 post diferentes, insertando valores aleatorios generados por medio de las librerias RANDOM y STRING (igual con la prueba anterior). Finalmente, pudimos comprobar que los post se crearon con exito.
+
+
+Podemos observar estas pruebas unitarias en el archivo TEST.PY que se encuentra dentro de la app creada en el proyecto Django. Asi mismo, vamos a copiar dicho codigo y pegar aqui debajo, por si no se desea abrir el otro archivo.
+
+-----------------------------------------------------------------
+
+def test_creacion_usuarios(self):
+
+        for x in range(1000):
+            last_name = "".join([random.choice(string.ascii_letters + string.digits) for _ in range(20)])
+            first_name = "".join([random.choice(string.ascii_letters + string.digits) for _ in range(20)])
+            username = "".join([random.choice(string.ascii_letters + string.digits) for _ in range(15)])
+            email = "".join([random.choice(string.ascii_letters + string.digits) for _ in range(12)]) + "@gmail.com"
+
+            usuario = User.objects.create(last_name=last_name , first_name=first_name , username=username , email=email)
+            self.assertIsNotNone(usuario.id)
+            self.assertEqual(usuario.last_name, last_name)
+            self.assertEqual(usuario.first_name, first_name)
+            self.assertEqual(usuario.username, username)
+            self.assertEqual(usuario.email, email)
+
+
+
+---------------------------------------------------------------
+
+
+def test_creacion_post(self):
+        for x in range(1000):
+            titulo = "".join([random.choice(string.ascii_letters + string.digits) for _ in range(20)])
+            subtitulo = "".join([random.choice(string.ascii_letters + string.digits) for _ in range(20)])
+            cuerpo = "".join([random.choice(string.ascii_letters + string.digits) for _ in range(4000)])
+            usuario = "".join([random.choice(string.ascii_letters + string.digits) for _ in range(8)])
+
+            post = Post.objects.create(titulo=titulo, subtitulo=subtitulo, cuerpo=cuerpo, usuario=usuario)
+            self.assertIsNotNone(post.id)
+            self.assertEqual(post.titulo, titulo)
+            self.assertEqual(post.subtitulo, subtitulo)
+            self.assertEqual(post.cuerpo, cuerpo)
+            self.assertEqual(post.usuario, usuario)

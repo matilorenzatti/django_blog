@@ -1,9 +1,17 @@
 # Blog - Django
 ---
 
+**Integrantes:**
+- Bocchieri Matias
+- Lorenzatti Matias
+
+
+<b>En la carpeta MEDIA > README van a poder encontrar un **VIDEO**, en el cual se explica el funcionamiento de la app.</b>
+
+
 <div style="text-align: justify">
 
-¡Hola a todos! Les presento mi primer proyecto hecho con Python, Django, HTML y CSS.
+¡Hola a todos! Les presentamos nuestro primer proyecto hecho con Python, Django, HTML y CSS.
 
 Se trata de un blog, pensado para que cualquier usuario de internet pueda leer los distintos posts sin necesidad de registrarse y hacer un login. En el caso de que quieran colaborar con el blog, ya sea agregando nuevos posts o modificando los existentes, pueden registrarse en la app y luego ingresar a la misma, para que se le habiliten las opciones correspondientes a edición.
 
