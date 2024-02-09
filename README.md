@@ -1,9 +1,8 @@
 # Blog - Django
 ---
 
-**Integrantes:**
-- Bocchieri Matias
-- Lorenzatti Matias
+
+- **Lorenzatti Matias**
 
 
 <b>En la carpeta MEDIA > README van a poder encontrar un **VIDEO**, en el cual se explica el funcionamiento de la app.</b>
